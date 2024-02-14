@@ -35,6 +35,7 @@ def boot_mlmem(dataset, x, m1, y, cluster,
 
     # 1. Data Preparation
     data = dataset.copy()  # Avoid modifying the original
+    data0 = data
 
     # Center mediators based on choice
     mediators = [m for m in [m1, m2, m3] if m is not None]
@@ -82,14 +83,19 @@ def boot_mlmem(dataset, x, m1, y, cluster,
                 formula += f' + (1 | {cluster}:{med})'  # Example syntax
 
     # 3. Bootstrapping
+    
+    model0 = mixedlm(formula, data0, groups=data0[cluster]).fit() 
+    
     boot_indirect_effects = [] 
     boot_direct_effects = []
     boot_contrasts = []
 
     for _ in range(n_boot): # Uses the 'n_boot' parameter
-        boot_sample = resample(dataset, replace=True)  
+        boot_sample = resample(dataset, replace=True)
         model = smf.mixedlm(formula, boot_sample, groups=boot_sample[cluster]).fit() 
 
+        data = boot_sample
+        
         # 4. Effect Calculation
         mod_values = {}  # For storing moderator values to use
         if modS1: 
@@ -149,7 +155,8 @@ def boot_mlmem(dataset, x, m1, y, cluster,
 
         # 5. Contrasts   
         contrasts = {}  # Store comparisons
-        # Example Contrasts (Expanded)
+        
+        # Example Contrasts
 
         # ... Single Mediator Contrast with modS1
         key = f'M1_Contrast_{modS1}'  
@@ -207,4 +214,4 @@ def boot_mlmem(dataset, x, m1, y, cluster,
             contrast_cis.setdefault(key,{})[effect_key] = (lower, upper)
 
     # 7. Return Results
-    return model, boot_indirect_effects, boot_direct_effects, boot_contrasts, indirect_cis, direct_cis, contrast_cis
+    return model0, boot_indirect_effects, boot_direct_effects, boot_contrasts, indirect_cis, direct_cis, contrast_cis
