@@ -7,9 +7,9 @@ Note that this module is more limited in functionality and was developed for per
 
 This module assists in complex statistical analyses within a multilevel modeling framework. It specifically performs the following:
 
-    Multilevel Moderated Mediation: Investigates how relationships between an independent variable (X), a dependent variable (Y), and parallel mediating variables (M1, M2, M3) are influenced by moderators at the cluster level (level-2).
-    User-specified Contrast Analysis: Examines and quantifies meaningful differences in indirect effects across various moderator levels.
-    Bootstrapping: Offers robust statistical inference and estimation of confidence intervals for calculated effects.
+* Multilevel Moderated Mediation: Investigates how relationships between an independent variable (X), a dependent variable (Y), and parallel mediating variables (M1, M2, M3) are influenced by moderators at the cluster level (level-2).
+* User-specified Contrast Analysis: Examines and quantifies meaningful differences in indirect effects across various moderator levels.
+* Bootstrapping: Offers robust statistical inference and estimation of confidence intervals for calculated effects.
 
 ## Dependencies
 
@@ -74,16 +74,41 @@ print(contrasts)
 
 ## Output
 
-    model: Fitted statsmodels mixed linear model object.
-    indirect_effects: Dictionary containing calculated indirect effects under various moderator combinations.
-    contrasts: Dictionary containing computed contrasts.
+    model: A fitted statsmodels mixed linear model object (smf.mixedlm). This contains parameter estimates, standard errors, and other relevant model information.
+
+    boot_indirect_effects:
+        A list where each element contains bootstrapped indirect effects for different combinations of moderator levels.
+        Structure:
+
+        [ 
+            (
+                {'S1_None_S2_None_S_None': [ind_eff1, ind_eff2, ...], ...},  # Dictionary of indirect effects 
+                {'S1_None_S2_None_S_None': (lower_ci, upper_ci), ...}       # Corresponding CIs
+            ), 
+            ... (Results for other bootstrap iterations)
+        ]
+
+    boot_direct_effects:
+        Similar structure to boot_indirect_effects, but focused on the direct effect of X on Y (c' path).
+
+    boot_contrasts:
+        Results of contrast analyses, comparing indirect or direct effects at different moderator levels.
+
+    indirect_cis:
+        95% confidence intervals (percentile-based) for each indirect effect calculated across bootstrap iterations.
+
+    direct_cis:
+        95% confidence intervals for the direct effects.
+
+    contrast_cis:
+        95% confidence intervals for contrast comparisons.
 
 ## Contrasts for probing interaction terms
 
 The module includes examples demonstrating how to calculate contrasts in moderated mediation analyses.
 
 * The included contrasts serve as examples. For your own hypotheses, you should tailor the code to test contrasts that best address your specific research questions and hypotheses about moderation.
-* This code offers a template to help you define and compute the contrasts of interest.
+* This code offers templates to help you define and compute the contrasts of interest.
 
 ### Specifying desired contrasts
 
