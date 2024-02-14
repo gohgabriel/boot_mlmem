@@ -161,7 +161,7 @@ print(contrasts)        # Examine calculated contrasts
 
 ## Key Considerations
 
-    Carefully consider which random effects structures in your data you want to model and configure the randx and randm lists accordingly.
-    Select an appropriate method of data centering. In most cases group mean centering is the correct method, but there is the option for grand mean centering for niche cases.
+Carefully consider which random effects structures in your data you want to model and configure the randx and randm lists accordingly.
+Select an appropriate method of data centering. In most cases group mean centering is the correct method, but there is the option for grand mean centering for niche cases.
 
-    Note:  This module assumes that the user has a good grasp of multilevel modeling concepts. Refer to Rockwood (2017) and the MLmem page (https://njrockwood.com/mlmed) for a deeper understanding.
+* Note:  This module assumes that the user has a good grasp of multilevel modeling concepts. Refer to Rockwood (2017) and the MLmem page (https://njrockwood.com/mlmed) for a deeper understanding.
