@@ -1,7 +1,7 @@
 # boot_mlmem
 
-This is a Python module for multilevel moderated mediation analysis with contrast testing and bootstrapping for statistical inference, based on the [SPSS MLmem macro](https://njrockwood.com/mlmed) by Nicholas Rockwood. Instead of using Monte Carlo, this implementation uses bootstrapping.
-Note that this module is more limited in functionality and was developed for personal use for very specific requirements, and as such, is not very user-friendly. Most users with access to SPSS should use the [MLmem macro](https://njrockwood.com/mlmed) instead.
+This is a Python module for multilevel moderated mediation analysis with contrast testing and bootstrapping for statistical inference, based on the [SPSS MLmed macro](https://njrockwood.com/mlmed) by Nicholas Rockwood. Instead of using Monte Carlo, this implementation uses bootstrapping.
+Note that this module is more limited in functionality and was developed for personal use for very specific requirements, and as such, is not very user-friendly. Most users with access to SPSS should use the [MLmed macro](https://njrockwood.com/mlmed) instead.
 
 ## Purpose
 
@@ -187,4 +187,4 @@ print(contrasts)        # Examine calculated contrasts
 Carefully consider which random effects structures in your data you want to model and configure the randx and randm lists accordingly.
 Select an appropriate method of data centering. In most cases group mean centering is the correct method, but there is the option for grand mean centering for niche cases.
 
-* Note:  This module assumes that the user has a good grasp of multilevel modeling concepts. Refer to Rockwood (2017) and the MLmem page (https://njrockwood.com/mlmed) for a deeper understanding.
+* Note:  This module assumes that the user has a good grasp of multilevel modeling concepts. Refer to Rockwood (2017) and the [MLmed page](https://njrockwood.com/mlmed) for a deeper understanding.
