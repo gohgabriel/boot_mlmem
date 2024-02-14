@@ -78,14 +78,14 @@ print(contrasts)
     indirect_effects: Dictionary containing calculated indirect effects under various moderator combinations.
     contrasts: Dictionary containing computed contrasts.
 
-## Contrasts for Examining Moderation
+## Contrasts for probing interaction terms
 
 The module includes examples demonstrating how to calculate contrasts in moderated mediation analyses.
 
 * The included contrasts serve as examples. For your own hypotheses, you should tailor the code to test contrasts that best address your specific research questions and hypotheses about moderation.
 * This code offers a template to help you define and compute the contrasts of interest.
 
-### How to Specify Your Desired Contrasts
+### Specifying desired contrasts
 
 * Formulate Research Questions:
     Determine the specific comparisons you want to make based on your hypotheses about moderation. Ask yourself:
@@ -93,9 +93,9 @@ The module includes examples demonstrating how to calculate contrasts in moderat
     Does my theory suggest specific differences in the strength or direction of an indirect effect under different moderator conditions?
     Am I interested in how a moderator changes the direct effect (non-mediated path)?
 
-* Modify the Code:  Locate the "## Example Contrasts" section within the module. Here's where you'll adjust and add contrasts:
-   Create Descriptive Keys: Use meaningful names for your contrast keys (e.g., key = f'M2_Contrast_HighVsLow_{modS1}'). Include labels referencing the mediators and moderators involved.
-   Adapt Calculations: Ensure the code within the contrast calculations correctly selects the high and low values of the relevant moderator(s) and extracts the specific indirect/direct effects you want to compare.
+* Locate the "## Example Contrasts" section within the module. Here's where you'll adjust and add contrasts.
+* Use meaningful names for your contrast keys (e.g., key = f'M2_Contrast_HighVsLow_{modS1}'). Include labels referencing the mediators and moderators involved.
+* Ensure the code within the contrast calculations correctly selects the high and low values of the relevant moderator(s) and extracts the specific indirect/direct effects you want to compare.
 
 
 ## Example
