@@ -51,12 +51,10 @@ results = bml.boot_mlmem(dataset=data,
 
 # Access results 
 model = results[0]
-indirect_effects = results[1]
-contrasts = results[2]
+indirect_effects_CI = results[5]
 
 print(model.summary()) 
-print(indirect_effects)
-print(contrasts)
+print(indirect_effects_CI)
 ```
 
 ## Parameters
